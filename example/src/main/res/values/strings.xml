@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name">BottomSheetCoordinatorLayout Example</string>
+    <string name="title_main">Main Content</string>
+    <string name="title_bottom_sheet">Bottom Sheet</string>
+</resources>

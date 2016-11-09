@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="coordinator_layout_bottom_sheet_behavior" translatable="false">biz.laenger.android.bscl.CoordinatorLayoutBottomSheetBehavior</string>
+</resources>
