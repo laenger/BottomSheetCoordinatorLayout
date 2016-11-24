@@ -8,4 +8,7 @@
     <color name="laengerPrimary">#1B1357</color>
     <color name="laengerPrimaryDark">#14003C</color>
     <color name="laengerAccent">#E6E6E6</color>
+
+    <color name="laenger10">#ff5722</color>
+    <color name="laenger20">#fbe9e7</color>
 </resources>

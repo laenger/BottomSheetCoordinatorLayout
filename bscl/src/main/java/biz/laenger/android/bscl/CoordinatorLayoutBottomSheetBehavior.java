@@ -286,7 +286,8 @@ public class CoordinatorLayoutBottomSheetBehavior<V extends View> extends Coordi
         View scroll = mNestedScrollingChildRef.get();
         return action == MotionEvent.ACTION_MOVE && scroll != null &&
                 !mIgnoreEvents && mState != STATE_DRAGGING &&
-                !parent.isPointInChildBounds(scroll, (int) event.getX(), (int) event.getY()) &&
+                (!parent.isPointInChildBounds(scroll, (int) event.getX(), (int) event.getY()) ||
+                        (scroll instanceof BottomSheetCoordinatorLayout && parent.isPointInChildBounds(((BottomSheetCoordinatorLayout) scroll).getAppBarLayout(), (int) event.getX(), (int) event.getY()))) &&
                 Math.abs(mInitialY - event.getY()) > mViewDragHelper.getTouchSlop();
     }
 
@@ -346,7 +347,8 @@ public class CoordinatorLayoutBottomSheetBehavior<V extends View> extends Coordi
                 setStateInternal(STATE_DRAGGING);
             }
         } else if (dy < 0) { // Downward
-            if (!ViewCompat.canScrollVertically(target, -1)) {
+            if ((target instanceof BottomSheetCoordinatorLayout) && ((BottomSheetCoordinatorLayout) target).isAppBarExpanded()
+                    || !(target instanceof BottomSheetCoordinatorLayout) && !ViewCompat.canScrollVertically(target, -1)) {
                 if (newTop <= mMaxOffset || mHideable) {
                     consumed[1] = dy;
                     ViewCompat.offsetTopAndBottom(child, -dy);

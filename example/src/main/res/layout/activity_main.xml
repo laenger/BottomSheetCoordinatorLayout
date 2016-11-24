@@ -14,27 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/collapsing_toolbar_layout"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/MainToolbarStyle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@android:color/holo_red_dark" />
-
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                style="@style/MainToolbarStyle"
-                android:layout_width="match_parent"
-                android:background="@android:color/transparent"
-                app:layout_collapseMode="pin"
-                app:title="@string/title_main" />
-
-        </android.support.design.widget.CollapsingToolbarLayout>
+            android:background="@android:color/transparent"
+            app:layout_collapseMode="pin"
+            app:title="@string/title_main" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -53,9 +39,9 @@
     <biz.laenger.android.bscl.BottomSheetCoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/colorBackgroundFloating"
         android:elevation="16dp"
         android:orientation="vertical"
+        app:appBarLayout="@+id/bottom_sheet_appbar"
         app:behavior_peekHeight="?attr/actionBarSize"
         app:layout_behavior="@string/coordinator_layout_bottom_sheet_behavior">
 
@@ -74,7 +60,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:src="@android:color/darker_gray" />
+                    android:src="@color/laenger10" />
 
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/bottom_sheet_toolbar"
@@ -89,6 +75,7 @@
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/laenger20"
             android:scrollbars="vertical"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
